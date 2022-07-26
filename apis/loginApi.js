@@ -32,7 +32,7 @@ exports.signup = async (req, res) => {
     }
     await db.dbInstance.query(`INSERT into user_table (user_name, user_email, user_phone_number) value('${user_name}', '${user_email}', '${user_phone_number}')`, { type: queryTypes.UPDATE })
     const user_exist = await db.dbInstance.query(`SELECT user_id from user_table WHERE user_phone_number = ${user_phone_number}`)
-    await db.dbInstance.query(`INSERT into password_table (user_password, user_id) value ('${password}', '${user_exist[0][0]?.user_id}')`)
+    await db.dbInstance.query(`INSERT into password_table (user_password, user_id) value ('${password}', '${user_exist[0][0].user_id}')`)
     return res.status(200).json({
         status: '200',
         value: 'user profile created'
