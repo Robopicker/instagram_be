@@ -4,7 +4,7 @@ const queryTypes = require("../DB/queryTypes")
 
 exports.login = async (req, res) => {
   try {
-    const { phone_number, password } = req?.body
+    const { phone_number, password } = req.body
     const data = await db.dbInstance.query(`select user_table.user_phone_number, password_table.user_password from user_table inner join password_table on user_table.user_id = password_table.user_id and user_table.user_phone_number = '${phone_number}';`)
    if (data[0][0]?.user_password !== undefined) {
     if (data[0][0]?.user_password === password) {
