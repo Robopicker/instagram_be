@@ -6,8 +6,8 @@ exports.login = async (req, res) => {
   try {
     const { phone_number, password } = req.body
     const data = await db.dbInstance.query(`select user_table.user_phone_number, password_table.user_password from user_table inner join password_table on user_table.user_id = password_table.user_id and user_table.user_phone_number = '${phone_number}';`)
-   if (data[0][0]?.user_password !== undefined) {
-    if (data[0][0]?.user_password === password) {
+   if (data[0][0].user_password !== undefined) {
+    if (data[0][0].user_password === password) {
       return res.status(200).json({ stats: "200", message: "user verified" })
     }
     return res.status(400).json({ status: "400", message: "password is wrong"})
