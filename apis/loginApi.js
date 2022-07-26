@@ -20,6 +20,11 @@ exports.login = async (req, res) => {
   }
 }
 
+exports.temp = (req, res) => {
+  console.log("you are heree")
+  return res.status(200).json({ error: "you are ok "})
+}
+
 exports.signup = async (req, res) => {
     try {
         console.log(req.body)
