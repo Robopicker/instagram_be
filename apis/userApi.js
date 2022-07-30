@@ -2,7 +2,7 @@ const { uploadImage } = require("../utils/postUtils")
 
 exports.post = async (req, res) => {
   try {
-    console.log("--->", req)
+    console.log("--->", req.body)
     const file = req.file
     console.log("---->", file)
     const result = await uploadImage(file)
