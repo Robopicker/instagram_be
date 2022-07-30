@@ -1,7 +1,7 @@
 const fs = require('fs')
 const { S3Instance } = require('../DB/S3/S3Instance')
 const multer = require('multer')
-const { upload } = multer({ dest: 'uploads/' })
+const  upload = multer({ dest: 'uploads/' })
 
 exports.imageMiddleware = (req, res, next) => {
     upload.single('image')
