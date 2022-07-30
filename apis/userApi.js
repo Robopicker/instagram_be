@@ -5,7 +5,7 @@ exports.post = async (req, res) => {
     const file = req.file
     console.log(file)
     const result = await uploadImage(file)
-    res.status(200).json({ image_link: result?.Location })
+    return res.status(200).json({ image_link: result?.Location })
   } catch (err) {
     res.status(400).json({ error: "something went wrong"})
   }
